@@ -1,7 +1,8 @@
 <?php
 date_default_timezone_set('America/New_York');
 
-$rootdir='C:\Users\Nazaire\Desktop\My Projects\website\php';
+$rootdir='C:\Users\Nazaire\Desktop\My Projects\website\website-php';
+$base_url="nqshabazz.xyz";
 $html_path;
 
 //From Felix Kling of StackOverflow
@@ -74,12 +75,12 @@ function end_doc(){
   include"includes/footer.php";
   echo"\n</body>\n</html>";
   
-  $derr = ob_get_clean();
-  echo $derr;
+  $derp = ob_get_clean();
+  echo $derp;
   
   global $html_path;
-  file_put_contents(str_replace('\php','\www',$html_path).'\index.html',$derr);
-  recurse_copy(__DIR__.'\assets','C:\Users\Nazaire\Desktop\My Projects\website\www\assets');
+  file_put_contents(str_replace('\website-php','\nqshabazz.github.io',$html_path).'\index.html',$derp);
+  recurse_copy(__DIR__.'\assets','C:\Users\Nazaire\Desktop\My Projects\website\nqshabazz.github.io\assets');
 }
 
 function root_dir(){

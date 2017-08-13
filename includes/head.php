@@ -9,6 +9,8 @@ if(!isset($page_description))
   $page_description="Portfolio of Nazaire Shabazz, digital developer and artist.";
 
 global $to_root;
+
+global $base_url;
 ?>
 <head>
   <!-- meta data -->
@@ -22,8 +24,8 @@ global $to_root;
   <meta property="og:title" content="<?php echo $page_title; ?>"/>
   <meta property="og:description" content="<?php echo $page_description; ?>"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://nqshabazz.xyz"/>
-  <meta property="og:image" content="https://nqshabazz.xyz/assets/images/logo.png"/>
+  <meta property="og:url" content="https://<?php echo $base_url ?>"/>
+  <meta property="og:image" content="https://<?php echo $base_url ?>/assets/images/logo.png"/>
   <meta property="og:locale:alternate" content="es_ES"/>
 
   <meta name="twitter:card" content="summary_large_image">
@@ -31,12 +33,12 @@ global $to_root;
   <meta name="twitter:creator" content="@nqshabazz">
   <meta name="twitter:title" content="<?php echo $page_title; ?>">
   <meta name="twitter:description" content="<?php echo $page_description; ?>"/>
-  <meta name="twitter:image" content="https://nqshabazz.xyz/assets/images/logo.png">
+  <meta name="twitter:image" content="https://<?php echo $base_url; ?>/assets/images/logo.png">
 
   <!-- meta links -->
   <link rel="publisher" href="https://plus.google.com/u/0/111346714509241869686"/>
   <link rel="canonical" href="/"/>
-  <link rel="shortcut icon" type="image/png" href="<?php echo $to_root?>assets/images/favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="<?php echo $to_root; ?>assets/images/favicon.png"/>
   
   <!-- title -->
   <title><?php echo $page_title; ?></title>
@@ -60,7 +62,7 @@ global $to_root;
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   
   <!--my css-->
-  <link rel="stylesheet" href="../../assets/css/style-default.css">
+  <link rel="stylesheet" href="<?php echo $to_root ?>assets/css/style-default.css">
   
   <script>
     $(window).on('load',function(){

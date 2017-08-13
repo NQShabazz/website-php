@@ -21,9 +21,9 @@ body.loaded #front-page-introduction{padding-top: 25px; opacity: 1;}
 body.loaded #front-page-loading-bar{max-width: 800px;}
 
 #front-page-option-container{height: 100px; width: 90%; max-width: 800px; position: relative;}
-
 .front-page-option-box-container{display: inline-block; vertical-align: top;}
-.front-page-option-box{width: 100px; height: 100px; display: inline-block; margin: 0 5px; opacity: 0; background: #f00;}
+.front-page-option-box{width: 100px; height: 75px; display: inline-block; margin: 0 5px; opacity: 0; text-align: center; color: #fff; text-decoration: none;}
+.front-page-option-box:hover{color: #fff;}
 .front-page-option-box.box1{transition: opacity .5s linear 1.50s;}
 .front-page-option-box.box2{transition: opacity .5s linear 2.00s;}
 .front-page-option-box.box3{transition: opacity .5s linear 2.50s;}
@@ -31,19 +31,21 @@ body.loaded #front-page-loading-bar{max-width: 800px;}
 .front-page-option-box.box5{width: 58px; height: 58px; transition: opacity .5s linear 3.50s; margin: 20px 5px 0 5px; padding: 10px; text-align: center; vertical-align: middle; color: #fff; border: 3px solid #fff; border-radius: 50%; background: none;}
 body.loaded .front-page-option-box{opacity: 1;}
 
-#blog-page article{width: 512px; max-width: 100%; display: inline-block;}
+#blog-page article{width: 512px; max-width: 100%; margin: auto;}
 #blog-page figure{width: 100%;}
 #blog-page figure img{width: 100%;}
-#blog-page figure figcaption{padding: 10px; color: #000;}
+#blog-page figure figcaption{padding: 10px; color: #000; max-height: 105px; text-align: left; overflow: hidden;}
 
-#blog-post > img{width: 100%;}
-#blog-post #content-container{ min-width: 300px; font-size: 1.1rem; font-family: Open Sans, Arial}
+#blog-post > *{margin-left: 5%; margin-right: 5%;}
+#blog-post > img{margin: auto; width: 100%;}
+#blog-post #content-container{min-width: 300px; font-size: 1.1rem; font-family: Open Sans, Arial}
 #blog-post #content-container p{padding: 2.5% 5%; margin: 0;}
 #blog-post #content-container hr{width: 75%; margin: 0 auto;}
 #blog-post address{text-align: center; padding: 2.5% 0;}
 #post-tags a{margin: 0 2px;}
 
 footer p{margin: 5px 0;}
+body main a:hover{text-decoration: none;}
 
 @media (max-width: 768px){
   #front-page-option-container{text-align: center}

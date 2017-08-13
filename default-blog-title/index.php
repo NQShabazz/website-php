@@ -1,7 +1,7 @@
 <?php
 // Personal Home Page or PHP: Hypertext Processor
 include '../defaults.inc.php';
-$to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/php');
+$to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/website-php');
 
 $title='Default Blog Title';
 $dashed_title=str_replace(' ', '-', strtolower($title));
@@ -17,7 +17,7 @@ $page_title=$title.' - Nazaire Shabazz';
 $page_description=$trimmed_excerpt;
 
 //RESOLVE DIR PROBLEM
-$blog_path="C:/Users/Nazaire/Desktop/My Projects/website/www/".$dashed_title;
+$blog_path="C:/Users/Nazaire/Desktop/My Projects/website/nqshabazz.github.io/".$dashed_title;
 start_doc($blog_path);
 ?>
 <?php
@@ -36,13 +36,14 @@ if ($conn->connect_error) {
 ?>
   <main id="post-page">
     <article id='blog-post' class='md-size m-auto'>
-      <h1 class="text-white"><?php echo $title ?></h1>
+      <h1 class="default-box" id="front-page-introduction"><?php echo $title ?></h1>
       <a class="text-muted">
         by Nazaire Shabazz | <time datetime="<?php echo date('c') ?>" title="<?php echo date('n/d/y h:i:s a') ?>"><?php echo date('n/d/y h:i:s a') ?></time>
       </a>
       <p id="post-tags">
-        <?php foreach(explode(',', $tags) as $tag) echo "<a class='badge badge-default' href='../blog/#".$tag."'>".$tag."</a>" ?>
+        <?php foreach(explode(', ', $tags) as $tag) echo "<a class='badge badge-default' href='../blog/#".$tag."'>".$tag."</a>" ?>
       </p>
+      <hr class="default-box" id="front-page-loading-bar" />
       <img src="<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>

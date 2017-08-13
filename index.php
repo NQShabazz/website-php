@@ -1,7 +1,7 @@
 <?php
 // Personal Home Page or PHP: Hypertext Processor
 include 'defaults.inc.php';
-$to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/php');
+$to_root=get_rel_path(__DIR__, 'C:\Users\Nazaire\Desktop\My Projects\website\website-php');
 start_doc(__DIR__);
 ?>
   <main>
@@ -11,12 +11,12 @@ start_doc(__DIR__);
       
       <div class="default-box" id="front-page-option-container">
         <div class="front-page-option-box-container">
-          <figure class="front-page-option-box box1"></figure>
-          <figure class="front-page-option-box box2"></figure>
+          <a class='fa fa-code fa-5x front-page-option-box box1' href='<?php echo $to_root ?>/#projects' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Projects"><span class="sr-only">Projects</span></a>
+          <a class='fa fa-smile-o fa-5x front-page-option-box box2' href='<?php echo $to_root ?>/#about' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="About Me"><span class="sr-only">About Me</span></a>
         </div>
         <div class="front-page-option-box-container">
-          <figure class="front-page-option-box box3"></figure>
-          <figure class="front-page-option-box box4"></figure>
+          <a class='fa fa-commenting-o fa-5x front-page-option-box box3' href='<?php echo $to_root ?>/blog' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Dev Blog"><span class="sr-only">Dev Blog</span></a>
+          <a class='fa fa-envelope-o fa-5x front-page-option-box box4' href='<?php echo $to_root ?>/#contact' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="nqshabazz@gmail.com"><span class="sr-only">Contact</span></a>
         </div>
         <div class="front-page-option-box-container">
           <a class='fa fa-twitter fa-2x front-page-option-box box5' href="https://twitter.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Twitter"><span class="sr-only">Twitter</span></a>

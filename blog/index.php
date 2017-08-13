@@ -1,9 +1,8 @@
 <?php
 // Personal Home Page or PHP: Hypertext Processor
-header("Refresh: 5;");
 include '../defaults.inc.php';
 
-$to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/php');
+$to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/website-php');
 $page_title='Game Development Blog - Nazaire Shabazz';
 
 start_doc(__DIR__);
@@ -37,12 +36,11 @@ function writeBlogs(){
 }
 ?>
   <main id="blog-page">
-    <section class='lg-size m-auto'>
-      <h1 class="text-white">BLOG</h1>
+    <section class='lg-size'>
+      <h1 class="default-box" id="front-page-introduction">Dev Blog</h1>
+      <hr class="default-box" id="front-page-loading-bar" />
       
-      <div class="d-flex justify-content-between flex-wrap">
-        <?php writeBlogs() ?>
-      </div>
+      <?php writeBlogs() ?>
     </section>
   </main>
 <?php
