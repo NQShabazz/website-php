@@ -36,16 +36,17 @@ body.loaded .front-page-option-box{opacity: 1;}
 #blog-page figure img{width: 100%;}
 #blog-page figure figcaption{padding: 10px; color: #000; max-height: 105px; text-align: left; overflow: hidden;}
 
-#blog-post > *{margin-left: 5%; margin-right: 5%;}
+#blog-post > *, #blog-tags{margin-left: 5%; margin-right: 5%;}
 #blog-post > img{margin: auto; width: 100%;}
 #blog-post #content-container{min-width: 300px; font-size: 1.1rem; font-family: Open Sans, Arial}
-#blog-post #content-container p{padding: 2.5% 5%; margin: 0;}
+#blog-post #content-container p{padding: 2.5% 5% 0 5%; margin: 0;}
 #blog-post #content-container hr{width: 75%; margin: 0 auto;}
 #blog-post address{text-align: center; padding: 2.5% 0;}
-#post-tags a{margin: 0 2px;}
+#post-tags a, #blog-tags a{margin: 5px 2px 0 2px; user-select: none;}
 
 footer p{margin: 5px 0;}
 body main a:hover{text-decoration: none;}
+.ml-5{margin-left: 5%;}
 
 @media (max-width: 768px){
   #front-page-option-container{text-align: center}

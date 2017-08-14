@@ -6,10 +6,11 @@ $to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/web
 $title='Default Blog Title';
 $dashed_title=str_replace(' ', '-', strtolower($title));
 $image_rpath="../assets/images/".$dashed_title."/top-image.png";
-$tags="test, first post, learning";
+$tags="test first-post learning";
 $excerpt="This is my very first blog.... I wonder how this will go";
 
 $trimmed_excerpt=$excerpt;
+
 if(strlen($trimmed_excerpt) > 255);
   $trimmed_excerpt=substr($trimmed_excerpt, 0, 252).'...';
 
@@ -31,7 +32,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: ".$conn->connect_error);
 }
 ?>
   <main id="post-page">
@@ -41,12 +42,13 @@ if ($conn->connect_error) {
         by Nazaire Shabazz | <time datetime="<?php echo date('c') ?>" title="<?php echo date('n/d/y h:i:s a') ?>"><?php echo date('n/d/y h:i:s a') ?></time>
       </a>
       <p id="post-tags">
-        <?php foreach(explode(', ', $tags) as $tag) echo "<a class='badge badge-default' href='../blog/#".$tag."'>".$tag."</a>" ?>
+        <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../blog/#".$tag."'>".$tag."</a>" ?>
       </p>
       <hr class="default-box" id="front-page-loading-bar" />
       <img src="<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
+        <p> I can write all types of stuff here and use HTML to do it. So I can do <b>this</b>, or <code>//this</code>, and all sorts of other <a id="bloodyCoolm8">cool stuff</a></p>
         <hr/>
       </div>
       <address class="bg-faded">
@@ -74,6 +76,13 @@ if ($conn->connect_error) {
 //      s.setAttribute('data-timestamp', +new Date());
 //      (d.head || d.body).appendChild(s);
 //      })();
+        
+        var hueVal = 0;
+        
+        setInterval(function(){
+          hueVal++;
+          document.getElementById('bloodyCoolm8').style.color = "hsl(" + hueVal + ", 100%, 50%)";
+        }, 20)
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </article>
