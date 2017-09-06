@@ -10,10 +10,10 @@ global $to_root;
     
     <nav id="link-nav" class='navbar-collapse collapse'>
       <div>
-        <a class='fa fa-code' href='<?php echo $to_root ?>/#projects' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Projects"><span class="sr-only">Projects</span></a> /
-        <a class='fa fa-smile-o' href='<?php echo $to_root ?>/#about' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="About Me"><span class="sr-only">About Me</span></a> /
-        <a class='fa fa-commenting-o' href='<?php echo $to_root ?>/blog' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Dev Blog"><span class="sr-only">Dev Blog</span></a> /
-        <a class='fa fa-envelope-o' href='<?php echo $to_root ?>/#contact' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="nqshabazz@gmail.com"><span class="sr-only">Contact</span></a>
+        <a class='fa fa-code' href='<?php echo $to_root ?>#projects' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Projects"><span class="sr-only">Projects</span></a> /
+        <a class='fa fa-smile-o' href='<?php echo $to_root ?>#about' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="About Me"><span class="sr-only">About Me</span></a> /
+        <a class='fa fa-commenting-o' href='<?php echo $to_root ?>blog' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Dev Blog"><span class="sr-only">Dev Blog</span></a> /
+        <a class='fa fa-envelope-o' href='<?php echo $to_root ?>#contact' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="nqshabazz@gmail.com"><span class="sr-only">Contact</span></a>
       </div>
       <div>
         <a class='fa fa-twitter' href="https://twitter.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Twitter"><span class="sr-only">Twitter</span></a> /

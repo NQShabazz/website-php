@@ -1,5 +1,0 @@
-Make a website with mySQL and PHP
- - make just the overarching template
- - add a blog to the website
-  - automated archiving, tags, search, disqus
-Get it live

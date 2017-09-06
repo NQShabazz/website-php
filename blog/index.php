@@ -10,7 +10,7 @@ start_doc(__DIR__);
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "blogDB";
+$dbname = "mydatabase";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -65,7 +65,7 @@ function writeBlogs(){
   <main id="blog-page">
     <section class='lg-size'>
       <h1 class="default-box" id="front-page-introduction">Dev Blog</h1>
-      <p class="default-box ml-5">Click the tags below to see more specific posts</p>
+      <p class="default-box ml10">Click the tags to see more specific posts</p>
       <?php writeTags(); ?>
       <hr class="default-box" id="front-page-loading-bar" />
       <?php writeBlogs(); ?>
@@ -97,14 +97,14 @@ function writeBlogs(){
         
         if(allTagsEnabled){
           while(tCount--)
-            tags[tCount].classList.remove("badge-info");
+            tags[tCount].classList.remove("badge-success");
 
-          tags[1].classList.add("badge-info");
+          tags[1].classList.add("badge-success");
         }else{
           while(tCount--)
-            tags[tCount].classList.add("badge-info");
+            tags[tCount].classList.add("badge-success");
 
-          tags[1].classList.remove("badge-info");
+          tags[1].classList.remove("badge-success");
         }
         
         toggleTag(tags[1]);
@@ -112,7 +112,7 @@ function writeBlogs(){
       }
       
       function toggleTag(tagElement){
-        tagElement.classList.toggle("badge-info");
+        tagElement.classList.toggle("badge-success");
         
         let posts = document.getElementsByTagName("article");
         var pCount = posts.length;
@@ -125,7 +125,7 @@ function writeBlogs(){
           
           while(tCount--){
             let t = tags[tCount];
-            if(t.classList.contains("badge-info") && p.classList.contains(t.innerText)){
+            if(t.classList.contains("badge-success") && p.classList.contains(t.innerText)){
               p.classList.remove("hidden-xl-down");
               break;
             }

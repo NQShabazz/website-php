@@ -1,5 +1,6 @@
-html{background: linear-gradient(30deg, #0cf, #0ca); background-attachment: fixed;}
-body{max-width: 1980px; background: none;}
+html{background: linear-gradient(30deg, #0cf, #0ca); background-attachment: fixed; min-height: 100vh;}
+body{max-width: 1980px; min-height: 100vh ; position: relative; background: none;}
+
 #topbar{width: 90%; margin: auto; padding-top: 10px; text-align: right; max-width: 800px;}
 #topbar a{text-decoration: none; font-size: 175%; color: #fff; padding: 5px; text-align: right;}
 #topbar nav{text-align: right;}
@@ -8,13 +9,14 @@ body{max-width: 1980px; background: none;}
 #link-nav a{transition: background 0.25s linear, color 0.25s linear}
 #link-nav a:hover{background: #fff; color: #0cf;}
 
-main{padding-top: 50px; width: 100%; max-width: 800px; margin: auto;}
+main{padding-bottom: 100px; width: 100%; max-width: 800px; margin: auto;}
 .lg-size{width: 1080px; max-width: 100%;}
 .md-size{width: 756px; max-width: 100%;}
 
 .default-box{margin: 0 auto; color: #fff;}
 
-#front-page-introduction{padding: -50px 0 0 5%; margin-left: 5%; max-width: 800px; opacity: 0; color: #fff; transition: padding-top 1s ease-out, opacity 1s ease-out;}
+#front-page{height: 100vh;}
+#front-page-introduction{padding: 100px 0 0 5%; margin-left: 5%; max-width: 800px; opacity: 0; color: #fff; transition: padding-top 1s ease-out, opacity 1s ease-out;}
 body.loaded #front-page-introduction{padding-top: 25px; opacity: 1;}
 
 #front-page-loading-bar{width: 90%; max-width: 10px; height: 10px; margin: 25px auto; background-color: #fff; transition: max-width .5s ease-out 1s;}
@@ -31,6 +33,16 @@ body.loaded #front-page-loading-bar{max-width: 800px;}
 .front-page-option-box.box5{width: 58px; height: 58px; transition: opacity .5s linear 3.50s; margin: 20px 5px 0 5px; padding: 10px; text-align: center; vertical-align: middle; color: #fff; border: 3px solid #fff; border-radius: 50%; background: none;}
 body.loaded .front-page-option-box{opacity: 1;}
 
+#projects{max-width: 800px; margin: 0 5% 0 5%; text-align: center;}
+#projects a{background: slategrey ; color: #fff; transition: background 0.125s linear;}
+#projects a:hover{background: gainsboro ; color: #fff;}
+#projects a.active{background: #5cb85c;}
+
+.project-link{display: inline-block; margin: auto;}
+.project-link figure{position: relative; margin-top: 10px; border: 3px solid transparent; transition: border 0.125s linear;}
+.project-link figure figcaption{position: absolute; bottom: 0; left: 5%; width: 95%; text-align: left; background: rgba(0, 0, 0, 0.2);}
+.project-link:hover figure{border: 3px solid #fff;}
+ 
 #blog-page article{width: 512px; max-width: 100%; margin: auto;}
 #blog-page figure{width: 100%;}
 #blog-page figure img{width: 100%;}
@@ -44,9 +56,10 @@ body.loaded .front-page-option-box{opacity: 1;}
 #blog-post address{text-align: center; padding: 2.5% 0;}
 #post-tags a, #blog-tags a{margin: 5px 2px 0 2px; user-select: none;}
 
+footer{position: absolute; bottom: 0; width: 100%;}
 footer p{margin: 5px 0;}
 body main a:hover{text-decoration: none;}
-.ml-5{margin-left: 5%;}
+.ml10{margin-left: 10%;}
 
 @media (max-width: 768px){
   #front-page-option-container{text-align: center}

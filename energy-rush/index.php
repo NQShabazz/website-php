@@ -3,11 +3,11 @@
 include '../defaults.inc.php';
 $to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/website-php');
 
-$title='Default Blog Title';
+$title='Energy Rush';
 $dashed_title=str_replace(' ', '-', strtolower($title));
-$image_rpath="../assets/images/".$dashed_title."/top-image.png";
-$tags="test first-post learning";
-$excerpt="This is my very first blog.... I wonder how this will go";
+$image_rpath="../".$dashed_title."/thumbnail.gif";
+$tags="game java processing";
+$excerpt="snake + tron";
 
 $trimmed_excerpt=$excerpt;
 
@@ -48,7 +48,7 @@ if ($conn->connect_error) {
       <img src="<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
-        <p> I can write all types of stuff here and use HTML to do it. So I can do <b>this</b>, or <code>//this</code>, and all sorts of other <a id="bloodyCoolm8">cool stuff</a></p>
+        <p> Made in Java Processing.</p>
         <hr/>
       </div>
       <address class="bg-faded">
@@ -61,28 +61,21 @@ if ($conn->connect_error) {
       <div id="disqus_thread"></div>
       <script>
 
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-        var disqus_config = function () {
-        this.page.url = "nqshabazz.com/<?php echo $dashed_title ?>/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier ="<?php echo $dashed_title ?>"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://nqshabazz-1.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
+      /**
+      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         
-        var hueVal = 0;
+      var disqus_config = function () {
+      this.page.url = "nqshabazz.com/<?php echo $dashed_title ?>/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier ="<?php echo $dashed_title ?>"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
         
-        setInterval(function(){
-          hueVal++;
-          document.getElementById('bloodyCoolm8').style.color = "hsl(" + hueVal + ", 100%, 50%)";
-        }, 20)
+      (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://nqshabazz-1.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+      })();
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </article>
@@ -91,19 +84,19 @@ if ($conn->connect_error) {
 //Personal Home Page
 
 //title, reg_date, image_rpath, tags, excerpt
-
-$sql = "SELECT * FROM myblogs WHERE title='".$title."'";
+$table = "myprojects";
+$sql = "SELECT * FROM ".$table." WHERE title='".$title."'";
 $result = $conn->query($sql);
 
 if($result->num_rows<=0){
-  $sql0 = "INSERT INTO myblogs (title, image_rpath, tags, excerpt)
+  $sql0 = "INSERT INTO ".$table." (title, image_rpath, tags, excerpt)
   VALUES ('".$title."', '".$image_rpath."', '".$tags."', '".$trimmed_excerpt."')";
   
   if($conn->query($sql0)!==TRUE){
       echo "Error: ".$sql0."<br>".$conn->error;
   }
 }else{
-  $sql0 = "UPDATE myblogs SET title='".$title."', reg_date=CURRENT_TIMESTAMP, image_rpath='".$image_rpath."', tags='".$tags."', excerpt='".$trimmed_excerpt."' WHERE title='".$title."'";
+  $sql0 = "UPDATE ".$table." SET title='".$title."', reg_date=CURRENT_TIMESTAMP, image_rpath='".$image_rpath."', tags='".$tags."', excerpt='".$trimmed_excerpt."' WHERE title='".$title."'";
   
   if($conn->query($sql0)!==TRUE){
       echo "Error: ".$sql0."<br>".$conn->error;
