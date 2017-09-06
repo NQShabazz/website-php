@@ -2,7 +2,7 @@
 date_default_timezone_set('America/New_York');
 
 $rootdir='C:\Users\Nazaire\Desktop\My Projects\website\website-php';
-$base_url="nqshabazz.xyz";
+$base_url="http://nqshabazz.com";
 $html_path;
 
 //From Felix Kling of StackOverflow

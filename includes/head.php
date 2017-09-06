@@ -8,6 +8,10 @@ global $page_description;
 if(!isset($page_description))
   $page_description="Portfolio of Nazaire Shabazz, digital developer and artist.";
 
+global $page_image;
+if(!isset($page_image))
+  $page_image="/assets/images/logo.png";
+
 global $to_root;
 
 global $base_url;
@@ -24,8 +28,8 @@ global $base_url;
   <meta property="og:title" content="<?php echo $page_title; ?>"/>
   <meta property="og:description" content="<?php echo $page_description; ?>"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://<?php echo $base_url ?>"/>
-  <meta property="og:image" content="https://<?php echo $base_url ?>/assets/images/logo.png"/>
+  <meta property="og:url" content="<?php echo $base_url ?>"/>
+  <meta property="og:image" content="<?php echo $base_url.$page_image ?>"/>
   <meta property="og:locale:alternate" content="es_ES"/>
 
   <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +37,7 @@ global $base_url;
   <meta name="twitter:creator" content="@nqshabazz">
   <meta name="twitter:title" content="<?php echo $page_title; ?>">
   <meta name="twitter:description" content="<?php echo $page_description; ?>"/>
-  <meta name="twitter:image" content="https://<?php echo $base_url; ?>/assets/images/logo.png">
+  <meta name="twitter:image" content="<?php echo $base_url.$page_image ?>">
 
   <!-- meta links -->
   <link rel="publisher" href="https://plus.google.com/u/0/111346714509241869686"/>
