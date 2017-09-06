@@ -5,7 +5,7 @@ $to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/web
 
 $title='Energy Rush';
 $dashed_title=str_replace(' ', '-', strtolower($title));
-$image_rpath="../".$dashed_title."/thumbnail.gif";
+$image_rpath="../assets/images/".$dashed_title."/thumbnail.gif";
 $tags="game java processing";
 $excerpt="snake + tron";
 
