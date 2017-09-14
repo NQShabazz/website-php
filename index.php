@@ -79,6 +79,10 @@ function writeProjects(){
         </ul>
       
         <?php writeProjects() ?>
+      
+        <div class="testblock">d</div>
+        <div class="testblock">d</div>
+        <div class="testblock">d</div>
     </section>
     
     <script>
