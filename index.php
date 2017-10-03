@@ -28,81 +28,195 @@ function writeProjects(){
       $raw_date = DateTime::createFromFormat('Y-m-d H:i:s', $row["reg_date"]);
       
       $projectTags = $row["tags"];
-      $projectTagsHTML = "<p>";
+      $projectTagsHTML = "";
       
       foreach(explode(' ', $projectTags) as $soloTag)
-        $projectTagsHTML = $projectTagsHTML."<a class='badge badge-default blog-tag'>".$soloTag."</a>";
+        $projectTagsHTML = $projectTagsHTML."<p class='badge badge-default blog-tag'>".$soloTag."</p>";
       
-      $projectTagsHTML = $projectTagsHTML."</p>";
+      echo "<article class='project-link ".$row["tags"]."'><a href='../".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='".$row["image_rpath"]."'/><figcaption class='bg-faded'><h3>".$row["title"]."</h3>".$projectTagsHTML."</figcaption></figure></a></article>";
+    }
+  }
+}
+
+$sql = "SELECT * FROM myblogs ORDER BY reg_date ASC";
+$result0 = $conn->query($sql);
+$result1 = $conn->query($sql);
+
+function writeTags(){
+  global $result0;
+  
+  $tags = Array();
+  
+  if($result0->num_rows>0){
+    while($row = $result0->fetch_assoc()) {
+      $postTags = $row["tags"];
       
-      echo "<article class='project-link ".$row["tags"]."'><a href='../".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='".$row["image_rpath"]."'/><figcaption class='bg-faded'><h2>".$row["title"]."</h2>".$projectTagsHTML."</figcaption></figure></a></article>";
+      foreach(explode(' ', $postTags) as $soloTag)
+        array_push($tags, $soloTag);
+    }
+    
+    $tags = array_unique($tags);
+    
+    echo "  <p class='badge badge-default blog-tag' onclick='toggleAllTags()'>*EVERYTHING*</p>\n";
+    
+    foreach($tags as $tag)
+      echo "  <p class='badge badge-default blog-tag' onclick='toggleTag(this)'>".$tag."</p>\n";
+  }
+}
+
+function writeBlogs(){
+  global $result1;
+  
+  if($result1->num_rows>0){
+    while($row = $result1->fetch_assoc()) {
+      $raw_date = DateTime::createFromFormat('Y-m-d H:i:s', $row["reg_date"]);
+
+      echo "<article class='".$row["tags"]."'><a href='../".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='".$row["image_rpath"]."'/><figcaption><h3>".$row["title"]."</h3><time datetime='".$raw_date->format('c')."' title='".$raw_date->format('n/d/y h:i:s a')."'>".$raw_date->format('F j, Y')."</time><p>".$row["excerpt"]."</p></figcaption></figure></a></article>";
     }
   }
 }
 ?>
-  <main>
-    <section id='front-page'>
-      <h1 class="default-box" id="front-page-introduction"><small>Hello, I'm</small><br>Nazaire Shabazz</h1>
-      <hr class="default-box" id="front-page-loading-bar" />
-      
-      <div class="default-box" id="front-page-option-container">
-        <div class="front-page-option-box-container">
-          <a class='fa fa-code fa-5x front-page-option-box box1' href='<?php echo $to_root ?>#projects' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Projects"><span class="sr-only">Projects</span></a>
-          <a class='fa fa-smile-o fa-5x front-page-option-box box2' href='<?php echo $to_root ?>#about' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="About Me"><span class="sr-only">About Me</span></a>
+  <main class="text-white">
+    <h1 class="default-box" id="front-page-introduction"><small>Hello, I'm</small><br>Nazaire Shabazz</h1>
+    
+    <div class="container">
+      <section>
+        <h2><a class="div-toggler" id="projects-toggle" href="#projects" data-toggle="collapse"><span>&#x0002b;</span> Projects</a></h2>
+        
+        <div id="projects" class="collapse">
+          <ul id="project-filter-container">
+            <li class="project-filter active" onclick="filterProjects(this)">all</li> 
+            <li class="project-filter" onclick="filterProjects(this)">game</li> 
+            <li class="project-filter" onclick="filterProjects(this)">art</li> 
+            <li class="project-filter" onclick="filterProjects(this)">music</li>
+          </ul>
+
+          <?php writeProjects() ?>
+
+          <div class="spacer-box"></div>
         </div>
-        <div class="front-page-option-box-container">
-          <a class='fa fa-commenting-o fa-5x front-page-option-box box3' href='<?php echo $to_root ?>blog' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Dev Blog"><span class="sr-only">Dev Blog</span></a>
-          <a class='fa fa-envelope-o fa-5x front-page-option-box box4' href='<?php echo $to_root ?>#contact' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="nqshabazz@gmail.com"><span class="sr-only">Contact</span></a>
+      </section>
+
+      <section>
+        <h2><a class="div-toggler" id="devblog-toggle" href="#devblog" data-toggle="collapse"><span>&#x0002b;</span> Dev Blog</a></h2>
+        
+        <div id="devblog" class="collapse">
+          <?php writeTags() ?>
+          <?php writeBlogs() ?>
+
+          <div class="spacer-box"></div>
         </div>
-        <div class="front-page-option-box-container">
-          <a class='fa fa-twitter fa-2x front-page-option-box box5' href="https://twitter.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Twitter"><span class="sr-only">Twitter</span></a>
-          <a class='fa fa-youtube-play fa-2x front-page-option-box box5' href="https://www.youtube.com/channel/UCwlgvHxHkWjNCsCm9byUEUg" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="YouTube"><span class="sr-only">YouTube</span></a>
-          <a class='fa fa-github-alt fa-2x front-page-option-box box5' href="https://github.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Github"><span class="sr-only">Github</span></a>
-          <a class='fa fa-linkedin fa-2x front-page-option-box box5' href="https://www.linkedin.com/in/nqshabazz/" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="LinkedIn"><span class="sr-only">LinkedIn</span></a>
+      </section>
+
+      <section>
+        <h2><a class="div-toggler" id="aboutcontact-toggle" href="#aboutcontact" data-toggle="collapse"><span>&#x0002b;</span> About / Contact</a></h2>
+        
+        <div id="aboutcontact" class="collapse">
+          <div class="spacer-box"></div>
         </div>
-      </div>
-    </section>
-    <section id="projects" class="text-white">
-        <ul class="nav nav-pills nav-justified">
-          <li class="nav-item">
-            <a class="nav-link active" data-toggle="pill" onclick="showAllProjects()">errthang</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" onclick="filterProjects('game')">game</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" onclick="filterProjects('art')">art</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="pill" onclick="filterProjects('music')">music</a>
-          </li>
-        </ul>
-      
-        <?php writeProjects() ?>
-      
-        <div class="testblock">d</div>
-        <div class="testblock">d</div>
-        <div class="testblock">d</div>
-    </section>
+      </section>
+    </div>
     
     <script>
-      let projectArray = document.getElementsByClassName("project-link");
+      let togglerArray = document.getElementsByClassName("div-toggler");
+      var togglerLength = togglerArray.length;
       
-      function showAllProjects(){
-        var i = projectArray.length;
-        
-        while(i--)
-          projectArray[i].classList.remove("hidden-xl-down");
+      while(togglerLength--){
+        togglerArray[togglerLength].addEventListener("click", function(){
+          if(document.getElementById(this.href.substring(this.href.indexOf("#") + 1)).classList.contains("show"))
+            this.getElementsByTagName("span")[0].innerHTML = "&#x0002b;";
+          else
+            this.getElementsByTagName("span")[0].innerHTML = "&#10799;";
+        });
       }
       
-      function filterProjects(projectTag){
+      let filterArray = document.getElementsByClassName("project-filter");
+      let projectArray = document.getElementsByClassName("project-link");
+      
+      function filterProjects(elem){
+        let projectTag = elem.innerText;
+        let showAll = projectTag == 'all';
+        
         var i = projectArray.length;
         
         while(i--)
-          if(projectArray[i].classList.contains(projectTag))
+          if(showAll || projectArray[i].classList.contains(projectTag))
             projectArray[i].classList.remove("hidden-xl-down");
           else
             projectArray[i].classList.add("hidden-xl-down");
+        
+        i = filterArray.length;
+        
+        while(i--)
+          filterArray[i].classList.remove('active');
+        
+        elem.classList.add("active");
+      }
+      
+
+      let tags = document.getElementsByClassName("blog-tag");
+      let URLTagFound = false;
+      let allTagsEnabled = false;
+      
+      if(window.location.hash){
+        var tCount = tags.length;
+
+        while(tCount--){
+          let t = tags[tCount];
+
+          if(t.innerText === window.location.hash.substring(1)){
+            t.click();
+            URLTagFound = true;
+            document.getElementById("devblog-toggle").click();
+            break;
+          }
+        }
+      }
+      
+      if(!URLTagFound)
+        toggleAllTags();
+      
+      function toggleAllTags(){
+        var tCount = tags.length;
+        
+        if(allTagsEnabled){
+          while(tCount--)
+            tags[tCount].classList.remove("badge-success");
+
+          tags[1].classList.add("badge-success");
+        }else{
+          while(tCount--)
+            tags[tCount].classList.add("badge-success");
+
+          tags[1].classList.remove("badge-success");
+        }
+        
+        toggleTag(tags[1]);
+        allTagsEnabled = !allTagsEnabled;
+      }
+      
+      function toggleTag(tagElement){
+        tagElement.classList.toggle("badge-success");
+        
+        let posts = document.getElementById("devblog").getElementsByTagName("article");
+        var pCount = posts.length;
+        
+        while(pCount--){
+          let p = posts[pCount];
+          p.classList.add("hidden-xl-down");
+          
+          var tCount = tags.length;
+          
+          while(tCount--){
+            let t = tags[tCount];
+            if(t.classList.contains("badge-success") && p.classList.contains(t.innerText)){
+              p.classList.remove("hidden-xl-down");
+              break;
+            }
+          }
+        }
+        
+        allTagsEnabled = false;
       }
     </script>
   </main>

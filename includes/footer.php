@@ -1,5 +1,12 @@
-  <footer class='footer bg-inverse text-white text-center'>
-    <p>nqshabazz@gmail.com</p><p>&copy; Nazaire Shabazz 2017</p>
+  <footer class='footer'>
+    <p id="social-media-footer">
+      <a class='fa fa-2x fa-twitter' href="https://twitter.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Twitter"><span class="sr-only">Twitter</span></a>
+      <a class='fa fa-2x fa-youtube-play' href="https://www.youtube.com/channel/UCwlgvHxHkWjNCsCm9byUEUg" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="YouTube"><span class="sr-only">YouTube</span></a>
+      <a class='fa fa-2x fa-github-alt' href="https://github.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Github"><span class="sr-only">Github</span></a>
+      <a class='fa fa-2x fa-linkedin' href="https://www.linkedin.com/in/nqshabazz/" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn"><span class="sr-only">LinkedIn</span></a>
+      <a class='fa fa-2x fa-envelope' href='mailto:nqshabazz@gmail.com' data-toggle="popover" data-trigger="hover" data-placement="top" data-content="nqshabazz@gmail.com"><span class="sr-only">Email</span></a>
+    </p>
+    <p>&copy; Nazaire Shabazz 2017</p>
   </footer>
   <script>
     document.body.classList.add("loaded");
@@ -7,16 +14,17 @@
     window.onload = function(){
       let anchorArray = document.getElementsByTagName("a");
       var index = anchorArray.length;
+      console.log(anchorArray);
 
       while(index--){
-        let anchorTarget = anchorArray[index].href.substring(17);
+        let anchorTarget = anchorArray[index].getAttribute("href");
+        console.log(anchorArray[index].innerText + ", " + anchorTarget);
         
         if(anchorTarget.startsWith("#")){
           let anch = anchorArray[index];
           
           anch.addEventListener("click", function(event) {
             event.preventDefault();
-
             smoothScroll(anchorTarget.substring(1));
           });
         }
@@ -29,9 +37,11 @@
         }, 1);
       }
     };
+    
     function smoothScroll(target){
       let elem = document.getElementById(target);
       
-      $('html, body').animate({scrollTop: elem.offsetTop}, 750);
+      if(elem)
+        $('html, body').animate({scrollTop: elem.offsetTop}, 750);
     }
   </script>

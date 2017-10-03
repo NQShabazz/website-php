@@ -8,6 +8,7 @@ $dashed_title=str_replace(' ', '-', strtolower($title));
 $image_rpath="../assets/images/".$dashed_title."/top-image.png";
 $tags="test first-post learning";
 $excerpt="This is my very first blog.... I wonder how this will go";
+$entry_date = date('c');
 
 $trimmed_excerpt=$excerpt;
 
@@ -35,59 +36,40 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: ".$conn->connect_error);
 }
+
+$sql = "SELECT reg_date FROM myblogs WHERE title='".$title."'";
+$result0 = $conn->query($sql);
+
+if($result0->num_rows>0){
+  $row = ($result0->fetch_assoc());
+  $entry_date = $row["reg_date"];
+}
 ?>
   <main id="post-page">
-    <article id='blog-post' class='md-size m-auto'>
+    <article id='blog-post' class='m-auto'>
       <h1 class="default-box" id="front-page-introduction"><?php echo $title ?></h1>
-      <a class="text-muted">
-        by Nazaire Shabazz | <time datetime="<?php echo date('c') ?>" title="<?php echo date('n/d/y h:i:s a') ?>"><?php echo date('n/d/y h:i:s a') ?></time>
-      </a>
+      <p class="text-muted">
+        by Nazaire Shabazz | <time datetime="<?php echo date("c", strtotime($entry_date)) ?>" title="<?php echo date('n/d/y h:i:s a', strtotime($entry_date)) ?>"><?php echo date('n/d/y h:i:s a', strtotime($entry_date)) ?></time>
+      </p>
       <p id="post-tags">
-        <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../blog/#".$tag."'>".$tag."</a>" ?>
+        <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
       </p>
       <hr class="default-box" id="front-page-loading-bar" />
       <img src="<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
-        <p> I can write all types of stuff here and use HTML to do it. So I can do <b>this</b>, or <code>//this</code>, and all sorts of other <a id="bloodyCoolm8">cool stuff</a></p>
+        <p> I can write all types of stuff here and use HTML to do it. So I can do <b>this</b>, or <code>//this</code>, and all sorts of other <span id="bloodyCoolm8">cool stuff</span></p>
         <hr/>
       </div>
-      <address class="bg-faded">
-        questions / suggestions? Get in touch:
-        <p>
-          <a href="https://twitter.com/nqshabazz" rel="nofollow" target="_blank" ><span class="fa fa-twitter"></span> @nqshabazz</a> |
-          <a href="mailto:nqshabazz@gmail.com">nqshabazz@gmail.com</a>
-        </p>
-      </address>
-      <div id="disqus_thread"></div>
+      <?php include '../includes/post-ending.php' ?>
       <script>
-        /**
-         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-         */
-        /*
-        var disqus_config = function () {
-            this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        */
-        (function() {  // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-
-            s.src = 'https://nqshabazz.disqus.com/embed.js';
-
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-        
-        var hueVal = 0;
+        let hueVal = 0;
         
         setInterval(function(){
           hueVal++;
           document.getElementById('bloodyCoolm8').style.color = "hsl(" + hueVal + ", 100%, 50%)";
         }, 20)
       </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </article>
   </main>
 <?php
@@ -106,7 +88,7 @@ if($result->num_rows<=0){
       echo "Error: ".$sql0."<br>".$conn->error;
   }
 }else{
-  $sql0 = "UPDATE myblogs SET title='".$title."', reg_date=CURRENT_TIMESTAMP, image_rpath='".$image_rpath."', tags='".$tags."', excerpt='".$trimmed_excerpt."' WHERE title='".$title."'";
+  $sql0 = "UPDATE myblogs SET title='".$title."', image_rpath='".$image_rpath."', tags='".$tags."', excerpt='".$trimmed_excerpt."' WHERE title='".$title."'";
   
   if($conn->query($sql0)!==TRUE){
       echo "Error: ".$sql0."<br>".$conn->error;

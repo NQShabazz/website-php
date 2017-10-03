@@ -2,24 +2,11 @@
 //Personal Home Page or PHP: Hypertext Processor
 global $to_root;
 ?>
-  <nav id='topbar' class='fixed-top d-flex flex-wrap justify-content-end align-items-center' role="navigation">
-    <a class='text-lowercase ml-auto align-items-top' data-toggle="collapse" data-target="#link-nav" aria-expanded="false" aria-controls="navbar">
+  <nav id='topbar' role="navigation">
+    <a href='<?php echo $to_root ?>'>
       <img alt="my logo" src="<?php echo $to_root ?>/assets/images/header-image.png"/>
-      <span class="sr-only">Toggle navigation</span>
+      <span class="sr-only">To Home</span>
     </a>
-    
-    <nav id="link-nav" class='navbar-collapse collapse'>
-      <div>
-        <a class='fa fa-code' href='<?php echo $to_root ?>#projects' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Projects"><span class="sr-only">Projects</span></a> /
-        <a class='fa fa-smile-o' href='<?php echo $to_root ?>#about' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="About Me"><span class="sr-only">About Me</span></a> /
-        <a class='fa fa-commenting-o' href='<?php echo $to_root ?>blog' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Dev Blog"><span class="sr-only">Dev Blog</span></a> /
-        <a class='fa fa-envelope-o' href='<?php echo $to_root ?>#contact' data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="nqshabazz@gmail.com"><span class="sr-only">Contact</span></a>
-      </div>
-      <div>
-        <a class='fa fa-twitter' href="https://twitter.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Twitter"><span class="sr-only">Twitter</span></a> /
-        <a class='fa fa-youtube-play' href="https://www.youtube.com/channel/UCwlgvHxHkWjNCsCm9byUEUg" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="YouTube"><span class="sr-only">YouTube</span></a> /
-        <a class='fa fa-github-alt' href="https://github.com/nqshabazz" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Github"><span class="sr-only">Github</span></a> /
-        <a class='fa fa-linkedin' href="https://www.linkedin.com/in/nqshabazz/" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="LinkedIn"><span class="sr-only">LinkedIn</span></a>
-      </div>
-    </nav>
   </nav>
+  <div id="topOfPage"></div>
+  <a class="fa fa-2x fa-chevron-up text-white" id="toTopButton" href="#topOfPage"></a>
