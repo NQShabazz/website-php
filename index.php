@@ -109,9 +109,18 @@ function writeBlogs(){
       </section>
 
       <section>
-        <h2><a class="div-toggler" id="aboutcontact-toggle" href="#aboutcontact" data-toggle="collapse"><span>&#x0002b;</span> About / Contact</a></h2>
+        <h2><a class="div-toggler" id="aboutcontact-toggle" href="#aboutcontact" data-toggle="collapse"><span>&#x0002b;</span> About / Resume</a></h2>
         
         <div id="aboutcontact" class="collapse">
+          <p class="lead">My name is Nazaire Shabazz. I study New Media Interactive Development at RIT.</p>
+          <p>I've always been the creative type, and I love to code. So why not mix the two and make games?</p>
+          
+          <object data="assets/Nazaire_Shabazz_Resume.pdf" type="application/pdf" width="100%" height="1080px">
+              <embed src="assets/Nazaire_Shabazz_Resume.pdf" type="application/pdf"/>
+              <iframe src="assets/Nazaire_Shabazz_Resume.pdf" type="application/pdf" frameborder="0"></iframe>
+              <p>This browser does not support PDFs. Please download the PDF to view it: <a href="assets/Nazaire_Shabazz_Resume.pdf">Download PDF</a>.</p>
+          </object>
+
           <div class="spacer-box"></div>
         </div>
       </section>

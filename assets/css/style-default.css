@@ -7,7 +7,7 @@ body{max-width: 1980px; min-height: 100vh ; position: relative; background: none
 a{color: inherit;}
 a:hover{color: inherit;}
 
-#topbar{display: inline-block; position: fixed; top: 10px; right: 10px;}
+#topbar{display: inline-block; position: fixed; top: 10px; right: calc(50% - 390px);}
 #topbar a{text-decoration: none; font-size: 175%; color: #fff; padding: 5px; text-align: right;}
 
 #link-nav{position: absolute; right: 0; top: 75px; width: auto; padding: 10px; border-radius: 3px; background: rgba(0, 0, 0, 0.75);}
@@ -19,6 +19,8 @@ main{padding-bottom: 100px; width: 100%; max-width: 800px; margin: auto;}
 main > .container{margin-top: 10vh;}
 main > .container h2{padding-bottom: 25px;}
 main > .container h2 a{color: inherit; text-decoration: none;}
+
+.container > section > div{margin: auto;}
 
 .spacer-box{height: 10vh;}
 
@@ -85,6 +87,8 @@ body main a:hover{text-decoration: none;}
 .ml10{margin-left: 10%;}
 
 section div.testblock{width: 256px; height: 256px; background: #666;}
+
+#aboutcontact object{max-height: 80vh;}
 
 @media (max-width: 800px){
   body{padding: 0;}
