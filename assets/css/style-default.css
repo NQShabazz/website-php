@@ -89,6 +89,7 @@ body main a:hover{text-decoration: none;}
 section div.testblock{width: 256px; height: 256px; background: #666;}
 
 #aboutcontact object{max-height: 80vh;}
+.blog-tag, .project-filter{cursor:pointer;}
 
 @media (max-width: 800px){
   body{padding: 0;}
