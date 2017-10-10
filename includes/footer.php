@@ -14,11 +14,9 @@
     window.onload = function(){
       let anchorArray = document.getElementsByTagName("a");
       var index = anchorArray.length;
-      console.log(anchorArray);
 
       while(index--){
         let anchorTarget = anchorArray[index].getAttribute("href");
-        console.log(anchorArray[index].innerText + ", " + anchorTarget);
         
         if(anchorTarget.startsWith("#")){
           let anch = anchorArray[index];
