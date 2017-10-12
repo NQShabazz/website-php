@@ -59,7 +59,7 @@ body.loaded .front-page-option-box{opacity: 1;}
 .project-link{display: inline-block; margin: auto;}
 .project-link figure{position: relative; margin-top: 10px; border: 3px solid transparent; transition: border 0.125s linear;}
 .project-link figure img{max-width: 100%;}
-.project-link figure figcaption{position: absolute; bottom: 0; left: 5%; width: 95%; text-align: left; background: rgba(0, 0, 0, 0.2);}
+.project-link figure figcaption{position: absolute; bottom: 0; left: 0; padding-left: 5%; width: 100%; text-align: left; background: rgba(0, 0, 0, 0.2);}
 .project-link:hover figure{border: 3px solid #fff;}
 
 #devblog article{width: 512px; max-width: 100%; margin: auto;}
