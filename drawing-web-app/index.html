@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<script src="tools.js"></script>
+	<script src="layers.js"></script>
+	<script src="script.js"></script>
+    <title>Web Canvas Paint App | Nazaire Shabazz</title>
+    </head>
+    
+    <body>
+        <header>
+            <input id="imageTitle" type="text" name="title" value="Untitled">
+            <p>Basic Paint Program by Nazaire Shabazz</p>
+        </header>
+        
+        <menu id="controls">
+            <div id="toolSet">
+                <img id="pencil-button" src="assets/pencilTool.png" onclick="changeTool(0)"/>|<img id="line-button" src="assets/lineTool.png" onclick="changeTool(1)" />|<img id="rect-button" src="assets/rectTool.png" onclick="changeTool(2)" />
+            </div>
+            
+            <p>THICKNESS: <span id="thicknessDisplay">10</span></p>
+            <input type="range" id="thicknessRange" value="10" max="100" />
+            
+            <div class="colorInstructions">
+                <p id="fillSpan">Fill</p>
+                <p id="strokeSpan">Stroke</p>
+            </div>
+            <div id="colorCanvasContainer">
+                <canvas id="fillCanvas" width="110" height="50"></canvas>
+                <canvas id="strokeCanvas" width="110" height="50"></canvas>
+            </div>
+            
+            <p>FILL ALPHA: <span id="fillTransparencyDisplay">100</span></p>
+            <input type="range" id="fillTransparencyRange" value="1" step="0.01" max="1" />
+            
+            <p>STROKE ALPHA: <span id="strokeTransparencyDisplay">100</span></p>
+            <input type="range" id="strokeTransparencyRange" value="1" step="0.01" max="1" />
+            
+            <div id="layerListContainer">
+                <p>Layers</p>
+                <div id="layerList">
+                    <div class="layerElement currentLayerElement" id="templateLayerElement">
+                        <input class="checkBox" type="checkbox" name="display" value="display" onmousedown="toggleVisible(this.parentElement.value)" checked>
+                        <input class="textBox" type="text" name="layerName" value="Layer 0">
+                        <a class="removeLayerButton" onmousedown="removeLayer(this.parentElement.value)">&#10006;</a>
+                    </div>
+                </div>
+                <div id="newLayerButton">New Layer &#10010;</div>
+            </div>
+        </menu>
+        
+        <div id="canvasContainer">
+            <canvas id="backgroundCanvas" width="800" height="600">Get a real browser!</canvas>
+            <div><a id="undoButton">UNDO</a><a id="redoButton">REDO</a> | <a id="clearButton">CLEAR</a><a id="saveButton">EXPORT</a><!-- | <a id="helpButton">&#10068;</a>--></div>
+            
+            <canvas id="templateCanvas" width="800" height="600" onmousedown="setUserToDraw()" onmouseover="getMouse()"></canvas>
+        </div>
+    </body>
+</html>
