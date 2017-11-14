@@ -1,6 +1,0 @@
-[submodule "projects/drawing-web-app"]
-	path = projects/drawing-web-app
-	url = git://github.com/nqshabazz/drawing-web-app
-[submodule "projects/sdioretsa"]
-	path = projects/sdioretsa
-	url = git://github.com/nqshabazz/sdioretsa
