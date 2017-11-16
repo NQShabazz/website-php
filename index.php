@@ -33,7 +33,7 @@ function writeProjects(){
       foreach(explode(' ', $projectTags) as $soloTag)
         $projectTagsHTML = $projectTagsHTML."<p class='badge badge-default blog-tag'>".$soloTag."</p>";
       
-      echo "<article class='project-link ".$row["tags"]."'><a href='../".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='".$row["image_rpath"]."'/><figcaption class='bg-faded'><h3>".$row["title"]."</h3>".$projectTagsHTML."</figcaption></figure></a></article>";
+      echo "<article class='project-link ".$row["tags"]."'><a href='".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='".$row["image_rpath"]."'/><figcaption class='bg-faded'><h3>".$row["title"]."</h3>".$projectTagsHTML."</figcaption></figure></a></article>";
     }
   }
 }
