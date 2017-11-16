@@ -4,3 +4,6 @@
 [submodule "drawing-web-app"]
 	path = drawing-web-app
 	url = https://github.com/nqshabazz/drawing-web-app
+[submodule "basic-node-chat"]
+	path = basic-node-chat
+	url = https://github.com/nqshabazz/basic-node-chat
