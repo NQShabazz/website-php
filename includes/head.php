@@ -35,6 +35,8 @@ global $base_url;
   <meta property="og:url" content="<?php echo $base_url.$page_url ?>"/>
   <meta property="og:image" content="<?php echo $base_url.$page_image ?>"/>
   <meta property="og:locale:alternate" content="es_ES"/>
+  
+  <meta property="fb:app_id" content="966242223397117"/>
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@nqshabazz">
