@@ -18,6 +18,7 @@ if(strlen($trimmed_excerpt) > 255);
 $page_title=$title.' - Nazaire Shabazz';
 $page_description=$trimmed_excerpt;
 $page_image="/".$image_rpath;
+$page_url="/".$dashed_title;
 
 //RESOLVE DIR PROBLEM
 $blog_path="C:/Users/Nazaire/Desktop/My Projects/website/nqshabazz.github.io/".$dashed_title;
@@ -28,6 +29,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "mydatabase";
+$tablename = "myblogs";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

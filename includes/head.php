@@ -12,6 +12,10 @@ global $page_image;
 if(!isset($page_image))
   $page_image="/assets/images/logo.png";
 
+global $page_url;
+if(!isset($page_url))
+  $page_url="";
+
 global $to_root;
 
 global $base_url;
@@ -28,7 +32,7 @@ global $base_url;
   <meta property="og:title" content="<?php echo $page_title; ?>"/>
   <meta property="og:description" content="<?php echo $page_description; ?>"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="<?php echo $base_url ?>"/>
+  <meta property="og:url" content="<?php echo $base_url.$page_url ?>"/>
   <meta property="og:image" content="<?php echo $base_url.$page_image ?>"/>
   <meta property="og:locale:alternate" content="es_ES"/>
 

@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM myprojects ORDER BY reg_date ASC";
+$sql = "SELECT * FROM myprojects ORDER BY reg_date DESC";
 $result = $conn->query($sql);
 
 function writeProjects(){
@@ -38,7 +38,7 @@ function writeProjects(){
   }
 }
 
-$sql = "SELECT * FROM myblogs ORDER BY reg_date ASC";
+$sql = "SELECT * FROM myblogs ORDER BY reg_date DESC";
 $result0 = $conn->query($sql);
 $result1 = $conn->query($sql);
 
