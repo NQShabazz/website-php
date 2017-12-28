@@ -62,6 +62,7 @@ if($result0->num_rows>0){
       <img src="<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
+        <p>I'm still in the middle of writing this post. (It's about 5:30, on 12/28 rn).</p>
         <hr/>
       </div>
       <?php include '../includes/post-ending.php' ?>
