@@ -64,12 +64,7 @@ if($result0->num_rows>0){
       </div>
       <?php include '../includes/post-ending.php' ?>
       <script>
-        let hueVal = 0;
         
-        setInterval(function(){
-          hueVal++;
-          document.getElementById('bloodyCoolm8').style.color = "hsl(" + hueVal + ", 100%, 50%)";
-        }, 20)
       </script>
     </article>
   </main>
