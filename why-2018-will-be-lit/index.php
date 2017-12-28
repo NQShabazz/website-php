@@ -13,12 +13,14 @@ $entry_date = date('c');
 $trimmed_excerpt=$excerpt;
 
 if(strlen($trimmed_excerpt) > 255);
-  $trimmed_excerpt=addslashes(substr($trimmed_excerpt, 0, 252).'...');
+  $trimmed_excerpt=substr($trimmed_excerpt, 0, 252).'...';
 
 $page_title=$title.' - Nazaire Shabazz';
 $page_description=$trimmed_excerpt;
 $page_image="/".$image_rpath;
 $page_url="/".$dashed_title;
+
+$trimmed_excerpt = addslashes($trimmed_excerpt);
 
 //RESOLVE DIR PROBLEM
 $blog_path="C:/Users/Nazaire/Desktop/My Projects/website/nqshabazz.github.io/".$dashed_title;
