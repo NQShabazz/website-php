@@ -73,8 +73,9 @@ body.loaded .front-page-option-box{opacity: 1;}
 
 #blog-post > *, #blog-tags{margin-left: 5%; margin-right: 5%;}
 #blog-post > img{margin: auto; width: 100%;}
-#blog-post #content-container{min-width: 300px; font-size: 1.1rem; font-family: Open Sans, Arial}
-#blog-post #content-container p{padding: 2.5% 5% 0 5%; margin: 0;}
+#blog-post #content-container{min-width: 300px; font-size: 1.1rem; font-family: Open Sans, Arial; padding: 0 5%;}
+#blog-post #content-container p{padding: 2.5% 0 0 0; margin: 0;}
+#blog-post #content-container h2{padding: 5% 0 0 0; margin: 0;}
 #blog-post #content-container hr{width: 75%; margin: 0 auto;}
 #blog-post a.badge{margin-bottom: 25px;}
 #blog-post address{text-align: center; padding: 2.5% 0;}
