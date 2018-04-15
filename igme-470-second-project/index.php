@@ -69,7 +69,7 @@ if($result0->num_rows>0){
         
         <p>Also I had great help from friends at the Construct and learned a lot about wiring, sensors, and hardware in general. For example, a few of the Construct staff taught me enough to design my own flex sensor, and I drew this:</p>
         
-        <img src="../assets/images/<?php echo $dashed_title ?>/sketch.jpg"
+        <img src="../assets/images/<?php echo $dashed_title ?>/sketch.jpg"/>
         
         <p>There wasn't much at all in terms of code, since the sofware was mainly for debugging purposes. The btle and NRF stuff I didn't understand at all but thanks to floe of Github for writing the libraries.</p>
         <p>Here's what I wrote:</p>
