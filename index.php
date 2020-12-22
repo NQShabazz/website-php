@@ -1,7 +1,6 @@
 <?php
 // Personal Home Page or PHP: Hypertext Processor
 include 'defaults.inc.php';
-$to_root=get_rel_path(__DIR__, 'C:\Users\Nazaire\Desktop\My Projects\website\website-php');
 start_doc(__DIR__);
 
 $servername = "localhost";
@@ -17,9 +16,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM myprojects ORDER BY reg_date DESC";
+$sql = "SELECT * FROM articles WHERE tags LIKE '%creation%' ORDER BY reg_date DESC";
 $result = $conn->query($sql);
-
+//reg_date, tags, title, image_rpath, excerpt
 function writeProjects(){
   global $result;
   
@@ -38,7 +37,7 @@ function writeProjects(){
   }
 }
 
-$sql = "SELECT * FROM myblogs ORDER BY reg_date DESC";
+$sql = "SELECT * FROM articles WHERE tags NOT LIKE '%creation%' ORDER BY reg_date DESC";
 $result0 = $conn->query($sql);
 $result1 = $conn->query($sql);
 
@@ -47,7 +46,7 @@ function writeTags(){
   
   $tags = Array();
   
-  if($result0->num_rows>0){
+  if($result0 && $result0->num_rows>0){
     while($row = $result0->fetch_assoc()) {
       $postTags = $row["tags"];
       
@@ -57,7 +56,7 @@ function writeTags(){
     
     $tags = array_unique($tags);
     
-    echo "  <p class='badge badge-default blog-tag' onclick='toggleAllTags()'>*EVERYTHING*</p>\n";
+    echo "  <p class='badge badge-default blog-tag' onclick='toggleAllTags()'>*ERRTHANG*</p>\n";
     
     foreach($tags as $tag)
       echo "  <p class='badge badge-default blog-tag' onclick='toggleTag(this)'>".$tag."</p>\n";
@@ -81,7 +80,7 @@ function writeBlogs(){
     
     <div class="container">
       <section>
-        <h2><a class="div-toggler" id="projects-toggle" href="#projects" data-toggle="collapse"><span>&#x0002b;</span> Projects</a></h2>
+        <h2><a class="div-toggler" id="projects-toggle" href="#projects" data-toggle="collapse"><span>&#x0002b;</span> The Works</a></h2>
         
         <div id="projects" class="collapse">
           <ul id="project-filter-container">
@@ -91,7 +90,9 @@ function writeBlogs(){
             <li class="project-filter" onclick="filterProjects(this)">music</li>
           </ul>
 
-          <?php writeProjects() ?>
+          <div id='project-container'>
+            <?php writeProjects() ?>
+          </div>
 
           <div class="spacer-box"></div>
         </div>
@@ -102,7 +103,10 @@ function writeBlogs(){
         
         <div id="devblog" class="collapse">
           <?php writeTags() ?>
-          <?php writeBlogs() ?>
+
+          <div id='blog-container'>
+            <?php writeBlogs() ?>
+          </div>
 
           <div class="spacer-box"></div>
         </div>
@@ -114,6 +118,7 @@ function writeBlogs(){
         <div id="aboutcontact" class="collapse">
           <p class="lead">My name is Nazaire Shabazz. I study New Media Interactive Development at RIT.</p>
           <p>I've always been the creative type, and I love to code. So I mix the two and make games!</p>
+          <p>Right now I'm working on a multi-platform mmo called Lilac World</p>
           
           <object data="assets/Nazaire_Shabazz_Resume.pdf" type="application/pdf" width="100%" height="1080px">
               <embed src="assets/Nazaire_Shabazz_Resume.pdf" type="application/pdf"/>

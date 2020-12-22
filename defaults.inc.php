@@ -1,7 +1,9 @@
 <?php
 date_default_timezone_set('America/New_York');
 
-$rootdir='C:\Users\Nazaire\Desktop\My Projects\website\website-php';
+$rootdir='C:\Users\LilacSnacc\Desktop\projects';
+$phpfolder='\php.nqshabazz.github.io';
+$wwwfolder='\www.nqshabazz.github.io';
 $base_url="http://nqshabazz.com";
 $html_path;
 
@@ -78,9 +80,9 @@ function end_doc(){
   $derp = ob_get_clean();
   echo $derp;
   
-  global $html_path;
-  file_put_contents(str_replace('\website-php','\nqshabazz.github.io',$html_path).'\index.html',$derp);
-  recurse_copy(__DIR__.'\assets','C:\Users\Nazaire\Desktop\My Projects\website\nqshabazz.github.io\assets');
+  global $phpfolder, $wwwfolder, $html_path, $rootdir;
+  file_put_contents(str_replace($phpfolder,$wwwfolder,$html_path).'\index.html',$derp);
+  recurse_copy(__DIR__.'\assets',$rootdir.$wwwfolder.'\assets');
 }
 
 function root_dir(){

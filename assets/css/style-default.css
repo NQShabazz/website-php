@@ -62,7 +62,8 @@ body.loaded .front-page-option-box{opacity: 1;}
 .project-link figure figcaption{position: absolute; bottom: 0; left: 0; padding-left: 5%; width: 100%; text-align: left; background: rgba(0, 0, 0, 0.2);}
 .project-link:hover figure{border: 3px solid #fff;}
 
-#devblog article{width: 512px; max-width: 100%; margin: auto;}
+#devblog > div {text-align: center; margin: auto;}
+#devblog article{display: inline-block; width: 45%; min-width: 300px; vertical-align: top; margin: 5px;}
 #devblog article figcaption{padding: 10px; background: rgba(0, 0, 0, 0.2)}
 #devblog article figcaption p{margin: 0;}
  
@@ -98,4 +99,5 @@ section div.testblock{width: 256px; height: 256px; background: #666;}
   h1, footer{padding-left: 5%;}
   footer{left: 0;}
   #toTopButton{right: 10%;}
+  #devblog article{display: block; width: 100%; margin: auto;}
 }

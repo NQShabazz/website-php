@@ -1,14 +1,14 @@
 <?php
 // Personal Home Page or PHP: Hypertext Processor
 include '../defaults.inc.php';
-$to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/website-php');
+global $rootdir, $phpfolder, $wwwfolder;
 
 $title='IGME 470 Second Project';
 $dashed_title=str_replace(' ', '-', strtolower($title));
 $image_rpath="../assets/images/".$dashed_title."/top-image.jpg";
 $tags="igme470 arduino .2018 .march";
 $excerpt="For my second Arduino project, I attempted to make a cheap data glove.";
-$entry_date = date('c');
+$reg_date = date('c');
 
 $trimmed_excerpt=$excerpt;
 
@@ -22,8 +22,7 @@ $page_url="/".$dashed_title;
 
 $trimmed_excerpt = addslashes($trimmed_excerpt);
 
-//RESOLVE DIR PROBLEM
-$blog_path="C:/Users/Nazaire/Desktop/My Projects/website/nqshabazz.github.io/".$dashed_title;
+$blog_path=$rootdir.$wwwfolder.'/'.$dashed_title;
 start_doc($blog_path);
 ?>
 <?php
@@ -31,7 +30,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "mydatabase";
-$tablename = "myblogs";
+$tablename = "articles";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -41,19 +40,19 @@ if ($conn->connect_error) {
     die("Connection failed: ".$conn->connect_error);
 }
 
-$sql = "SELECT reg_date FROM myblogs WHERE title='".$title."'";
+$sql = "SELECT reg_date FROM articles WHERE title='".$title."'";
 $result0 = $conn->query($sql);
 
-if($result0->num_rows>0){
+if($result0 && $result0->num_rows>0){
   $row = ($result0->fetch_assoc());
-  $entry_date = $row["reg_date"];
+  $reg_date = $row["reg_date"];
 }
 ?>
   <main id="post-page">
     <article id='blog-post' class='m-auto'>
       <h1 class="default-box" id="front-page-introduction"><?php echo $title ?></h1>
       <p class="text-muted">
-        by Nazaire Shabazz | <time datetime="<?php echo date("c", strtotime($entry_date)) ?>" title="<?php echo date('n/d/y h:i:s a', strtotime($entry_date)) ?>"><?php echo date('n/d/y h:i:s a', strtotime($entry_date)) ?></time>
+        by Nazaire Shabazz | <time datetime="<?php echo date("c", strtotime($reg_date)) ?>" title="<?php echo date('n/d/y h:i:s a', strtotime($reg_date)) ?>"><?php echo date('n/d/y h:i:s a', strtotime($reg_date)) ?></time>
       </p>
       <p id="post-tags">
         <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
@@ -133,17 +132,17 @@ if($result0->num_rows>0){
 
 //title, reg_date, image_rpath, tags, excerpt
 
-$sql = "SELECT * FROM myblogs WHERE title='".$title."'";
+$sql = "SELECT * FROM articles WHERE title='".$title."'";
 $result = $conn->query($sql);
 
-if($result->num_rows<=0){
-  $sql0 = "INSERT INTO myblogs (title, image_rpath, tags, excerpt) VALUES ('".$title."', '".$image_rpath."', '".$tags."', '".$trimmed_excerpt."')";
+if(!$result || $result->num_rows<=0){
+  $sql0 = "INSERT INTO articles (title, image_rpath, tags, excerpt, reg_date) VALUES ('".$title."', '".$image_rpath."', '".$tags."', '".$trimmed_excerpt."', '".$reg_date."')";
   
   if($conn->query($sql0)!==TRUE){
       echo "Error: ".$sql0."<br>".$conn->error;
   }
 }else{
-  $sql0 = "UPDATE myblogs SET title='".$title."', image_rpath='".$image_rpath."', tags='".$tags."', excerpt='".$trimmed_excerpt."' WHERE title='".$title."'";
+  $sql0 = "UPDATE articles SET title='".$title."', image_rpath='".$image_rpath."', tags='".$tags."', excerpt='".$trimmed_excerpt."' WHERE title='".$title."'";
   
   if($conn->query($sql0)!==TRUE){
       echo "Error: ".$sql0."<br>".$conn->error;

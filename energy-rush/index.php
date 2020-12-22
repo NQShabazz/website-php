@@ -1,14 +1,14 @@
 <?php
 // Personal Home Page or PHP: Hypertext Processor
 include '../defaults.inc.php';
-$to_root=get_rel_path(__DIR__, 'C:/Users/Nazaire/Desktop/My Projects/website/website-php');
+global $rootdir, $phpfolder, $wwwfolder;
 
 $title='Energy Rush';
 $dashed_title=str_replace(' ', '-', strtolower($title));
 $image_rpath="../assets/images/".$dashed_title."/thumbnail.gif";
-$tags="game java processing";
+$tags="game java processing creation";
 $excerpt="snake + tron";
-$entry_date = date('c');
+$reg_date = date('c');
 
 $trimmed_excerpt=$excerpt;
 
@@ -20,8 +20,9 @@ $page_description=$trimmed_excerpt;
 $page_image="/".$image_rpath;
 $page_url="/".$dashed_title;
 
-//RESOLVE DIR PROBLEM
-$blog_path="C:/Users/Nazaire/Desktop/My Projects/website/nqshabazz.github.io/".$dashed_title;
+$trimmed_excerpt = addslashes($trimmed_excerpt);
+
+$blog_path=$rootdir.$wwwfolder.'/'.$dashed_title;
 start_doc($blog_path);
 ?>
 <?php
@@ -29,7 +30,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "mydatabase";
-$tablename = "myprojects";
+$tablename = "articles";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -42,16 +43,16 @@ if ($conn->connect_error) {
 $sql = "SELECT reg_date FROM ".$tablename." WHERE title='".$title."'";
 $result0 = $conn->query($sql);
 
-if($result0->num_rows>0){
+if($result0 && $result0->num_rows>0){
   $row = ($result0->fetch_assoc());
-  $entry_date = $row["reg_date"];
+  $reg_date = $row["reg_date"];
 }
 ?>
   <main id="post-page">
     <article id='blog-post' class='m-auto'>
       <h1 class="default-box" id="front-page-introduction"><?php echo $title ?></h1>
       <p class="text-muted">
-        by Nazaire Shabazz | <time datetime="<?php echo date("c", strtotime($entry_date)) ?>" title="<?php echo date('n/d/y h:i:s a', strtotime($entry_date)) ?>"><?php echo date('n/d/y h:i:s a', strtotime($entry_date)) ?></time>
+        by Nazaire Shabazz | <time datetime="<?php echo date("c", strtotime($reg_date)) ?>" title="<?php echo date('n/d/y h:i:s a', strtotime($reg_date)) ?>"><?php echo date('n/d/y h:i:s a', strtotime($reg_date)) ?></time>
       </p>
       <p id="post-tags">
         <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
@@ -73,7 +74,7 @@ if($result0->num_rows>0){
 $sql = "SELECT * FROM ".$tablename." WHERE title='".$title."'";
 $result = $conn->query($sql);
 
-if($result->num_rows<=0){
+if(!$result || $result->num_rows<=0){
   $sql0 = "INSERT INTO ".$tablename." (title, image_rpath, tags, excerpt)
   VALUES ('".$title."', '".$image_rpath."', '".$tags."', '".$trimmed_excerpt."')";
   
