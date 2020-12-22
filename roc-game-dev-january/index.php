@@ -5,10 +5,10 @@ global $rootdir, $phpfolder, $wwwfolder;
 
 $title='ROC Game Dev January';
 $dashed_title=str_replace(' ', '-', strtolower($title));
-$image_rpath="../assets/images/why-2018-will-be-lit/top-image.png";
+$image_rpath="assets/images/why-2018-will-be-lit/top-image.png";
 $tags="roc-game-dev gamedev .january .2018";
 $excerpt="So on Wednesday (1/3/2018) I went to the ROC Game Dev Meetup.";
-$reg_date = date('c');
+$reg_date = '2018-01-06T22:19:10-05:00';//date('c');
 
 $trimmed_excerpt=$excerpt;
 
@@ -58,7 +58,7 @@ if($result0 && $result0->num_rows>0){
         <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
       </p>
       <hr class="default-box" id="front-page-loading-bar" />
-      <img src="<?php echo $image_rpath ?>"/>
+      <img src="../<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
         

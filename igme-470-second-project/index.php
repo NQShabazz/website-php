@@ -5,10 +5,10 @@ global $rootdir, $phpfolder, $wwwfolder;
 
 $title='IGME 470 Second Project';
 $dashed_title=str_replace(' ', '-', strtolower($title));
-$image_rpath="../assets/images/".$dashed_title."/top-image.jpg";
+$image_rpath="assets/images/".$dashed_title."/top-image.jpg";
 $tags="igme470 arduino .2018 .march";
 $excerpt="For my second Arduino project, I attempted to make a cheap data glove.";
-$reg_date = date('c');
+$reg_date = '2018-03-28T00:48:02-04:00';//date('c');
 
 $trimmed_excerpt=$excerpt;
 
@@ -58,7 +58,7 @@ if($result0 && $result0->num_rows>0){
         <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
       </p>
       <hr class="default-box" id="front-page-loading-bar" />
-      <img src="<?php echo $image_rpath ?>"/>
+      <img src="../<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
         

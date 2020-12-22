@@ -5,10 +5,10 @@ global $rootdir, $phpfolder, $wwwfolder;
 
 $title='Why 2018 Will Be Lit';
 $dashed_title=str_replace(' ', '-', strtolower($title));
-$image_rpath="../assets/images/".$dashed_title."/top-image.png";
+$image_rpath="assets/images/".$dashed_title."/top-image.png";
 $tags="personal .2017 .december";
 $excerpt="2017 was a mental drain. I'm making changes to ensure 2018 is much better.";
-$reg_date = date('c');
+$reg_date = '2017-12-28T13:54:43-05:00';//date('c');
 
 $trimmed_excerpt=$excerpt;
 
@@ -58,7 +58,7 @@ if($result0 && $result0->num_rows>0){
         <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
       </p>
       <hr class="default-box" id="front-page-loading-bar" />
-      <img src="<?php echo $image_rpath ?>"/>
+      <img src="../<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
         

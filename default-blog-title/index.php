@@ -5,7 +5,7 @@ global $rootdir, $phpfolder, $wwwfolder;
 
 $title='Default Blog Title';
 $dashed_title=str_replace(' ', '-', strtolower($title));
-$image_rpath="../assets/images/".$dashed_title."/top-image.png";
+$image_rpath="assets/images/".$dashed_title."/top-image.png";
 $tags="test first-post learning";
 $excerpt="This is my very first blog.... I wonder how this will go";
 $reg_date = '2017-09-26T10:21:47-04:00';// date('c');
@@ -58,7 +58,7 @@ if($result0 && $result0->num_rows>0){
         <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
       </p>
       <hr class="default-box" id="front-page-loading-bar" />
-      <img src="<?php echo $image_rpath ?>"/>
+      <img src="../<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
         <p> I can write all types of stuff here and use HTML to do it. So I can do <b>this</b>, or <code>//this</code>, and all sorts of other <span id="bloodyCoolm8">cool stuff</span></p>

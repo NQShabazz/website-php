@@ -3,7 +3,7 @@ date_default_timezone_set('America/New_York');
 
 $rootdir='C:\Users\LilacSnacc\Desktop\projects';
 $phpfolder='\php.nqshabazz.github.io';
-$wwwfolder='\www.nqshabazz.github.io';
+$wwwfolder='\nqshabazz.github.io';
 $base_url="http://nqshabazz.com";
 $html_path;
 

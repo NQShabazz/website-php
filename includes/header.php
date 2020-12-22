@@ -1,7 +1,8 @@
 <?php
 //Personal Home Page or PHP: Hypertext Processor
-global $rootdir, $phpfolder;
-$to_root=get_rel_path(__DIR__, $rootdir.$phpfolder);
+global $rootdir, $phpfolder, $to_root;
+if(!isset($to_root))
+  $to_root=get_rel_path(__DIR__, $rootdir.$phpfolder);
 ?>
   <nav id='topbar' role="navigation">
     <a href='<?php echo $to_root ?>'>

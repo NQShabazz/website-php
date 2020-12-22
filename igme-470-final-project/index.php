@@ -5,10 +5,10 @@ global $rootdir, $phpfolder, $wwwfolder;
 
 $title='IGME 470 Final Project';
 $dashed_title=str_replace(' ', '-', strtolower($title));
-$image_rpath="../assets/images/".$dashed_title."/top-image.png";
+$image_rpath="assets/images/".$dashed_title."/top-image.png";
 $tags="igme470 arduino .2018 .april";
 $excerpt="IGME 470 was by far my favorite class this semester. Recently we did our final project.";
-$reg_date = date('c');
+$reg_date = '2018-05-07T01:19:42-04:00';// date('c');
 
 $trimmed_excerpt=$excerpt;
 
@@ -58,7 +58,7 @@ if($result0 && $result0->num_rows>0){
         <?php foreach(explode(' ', $tags) as $tag) echo "<a class='badge badge-default' href='../#".$tag."'>".$tag."</a>" ?>
       </p>
       <hr class="default-box" id="front-page-loading-bar" />
-      <img src="<?php echo $image_rpath ?>"/>
+      <img src="../<?php echo $image_rpath ?>"/>
       <div id="content-container" class="bg-faded">
         <p><?php echo $excerpt ?></p>
         

@@ -1,6 +1,9 @@
 <?php
 // Personal Home Page or PHP: Hypertext Processor
 include 'defaults.inc.php';
+global $rootdir, $phpfolder;
+$to_root=get_rel_path(__DIR__, $rootdir.$phpfolder);
+
 start_doc(__DIR__);
 
 $servername = "localhost";
@@ -32,7 +35,7 @@ function writeProjects(){
       foreach(explode(' ', $projectTags) as $soloTag)
         $projectTagsHTML = $projectTagsHTML."<p class='badge badge-default blog-tag'>".$soloTag."</p>";
       
-      echo "<article class='project-link ".$row["tags"]."'><a href='".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='".$row["image_rpath"]."'/><figcaption class='bg-faded'><h3>".$row["title"]."</h3>".$projectTagsHTML."</figcaption></figure></a></article>";
+      echo "<article class='project-link ".$row["tags"]."'><a href='./".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='./".$row["image_rpath"]."'/><figcaption class='bg-faded'><h3>".$row["title"]."</h3>".$projectTagsHTML."</figcaption></figure></a></article>";
     }
   }
 }
@@ -70,7 +73,7 @@ function writeBlogs(){
     while($row = $result1->fetch_assoc()) {
       $raw_date = DateTime::createFromFormat('Y-m-d H:i:s', $row["reg_date"]);
 
-      echo "<article class='".$row["tags"]."'><a href='../".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='".$row["image_rpath"]."'/><figcaption><h3>".$row["title"]."</h3><time datetime='".$raw_date->format('c')."' title='".$raw_date->format('n/d/y h:i:s a')."'>".$raw_date->format('F j, Y')."</time><p>".$row["excerpt"]."</p></figcaption></figure></a></article>";
+      echo "<article class='".$row["tags"]."'><a href='./".str_replace(' ', '-', strtolower($row["title"]))."/'><figure><img src='./".$row["image_rpath"]."'/><figcaption><h3>".$row["title"]."</h3><time datetime='".$raw_date->format('c')."' title='".$raw_date->format('n/d/y h:i:s a')."'>".$raw_date->format('F j, Y')."</time><p>".$row["excerpt"]."</p></figcaption></figure></a></article>";
     }
   }
 }

@@ -16,8 +16,9 @@ global $page_url;
 if(!isset($page_url))
   $page_url="";
 
-global $rootdir, $phpfolder;
-$to_root=get_rel_path(__DIR__, $rootdir.$phpfolder);
+global $rootdir, $phpfolder, $to_root;
+if(!isset($to_root))
+  $to_root=get_rel_path(__DIR__, $rootdir.$phpfolder);
 
 global $base_url;
 ?>
