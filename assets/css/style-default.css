@@ -82,7 +82,7 @@ body.loaded .front-page-option-box{opacity: 1;}
 #blog-post address{text-align: center; padding: 2.5% 0;}
 #post-tags a, #blog-tags a{margin: 5px 2px 0 2px; user-select: none;}
 
-footer{position: absolute; left: calc(50% - 400px); bottom: 0; color: #fff;}
+footer{display:block; width: 100%; max-width: 800px; position: absolute; left: calc(50% - 400px); bottom: 0; color: #fff;}
 footer p{margin: 3px auto; max-width: 800px;}
 footer p a{margin-right: 20px;}
 

@@ -6,7 +6,7 @@
       <a class='fa fa-2x fa-linkedin' href="https://www.linkedin.com/in/nqshabazz/" rel="nofollow" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="LinkedIn"><span class="sr-only">LinkedIn</span></a>
       <a class='fa fa-2x fa-envelope' href='mailto:lilacsnacc@gmail.com' data-toggle="popover" data-trigger="hover" data-placement="top" data-content="lilacsnacc@gmail.com"><span class="sr-only">Email</span></a>
     </p>
-    <p>&copy; Nazaire Shabazz / Lilac Snacc LLC 2020</p>
+    <p>&copy; Nazaire Shabazz / Lilac Snacc LLC 2020 <span style="float: right">(made with PHP and mySQL)</span></p>
   </footer>
   <script>
     document.body.classList.add("loaded");

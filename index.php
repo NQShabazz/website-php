@@ -119,9 +119,9 @@ function writeBlogs(){
         <h2><a class="div-toggler" id="aboutcontact-toggle" href="#aboutcontact" data-toggle="collapse"><span>&#x0002b;</span> About / Resume</a></h2>
         
         <div id="aboutcontact" class="collapse">
-          <p class="lead">My name is Nazaire Shabazz. I study New Media Interactive Development at RIT.</p>
-          <p>I've always been the creative type, and I love to code. So I mix the two and make games!</p>
-          <p>Right now I'm working on a multi-platform mmo called Lilac World</p>
+          <p class="lead">This website is made with PHP, mySQL, and love. Of course, it could've been developed in React, Angular, or just vanilla JS - but this was a good chance to showcase my skill with legacy technologies.</p>
+          <p>So blog and project data is hosted in a mySQL database, which is pulled in by PHP during the building of the website. And finally, I use PHP to generate a static HTML file (the one you're looking right now!)</p>
+          <p class="lead">My name is Nazaire Shabazz. I study New Media Interactive Development at RIT. I've always been the creative type, and I love to code. So I mix the two and make games! Right now I'm working on a multi-platform mmo called Lilac World</p>
           
           <object data="assets/Nazaire_Shabazz_Resume.pdf" type="application/pdf" width="100%" height="1080px">
               <embed src="assets/Nazaire_Shabazz_Resume.pdf" type="application/pdf"/>
