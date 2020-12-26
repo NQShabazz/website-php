@@ -62,9 +62,6 @@ function start_doc($path){
   global $html_path;
   $html_path=$path;
   
-  if(!is_dir(str_replace('\php','\www',$path)))
-    mkdir(str_replace('\php','\www',$path),0777,true);
-  
   ob_start();
   echo"<!DOCTYPE html>\n<html lang='en'>\n";
   include"includes/head.php";
