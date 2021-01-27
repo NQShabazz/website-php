@@ -80,6 +80,10 @@ function writeBlogs(){
 ?>
   <main class="text-white">
     <h1 class="default-box" id="front-page-introduction"><small>Hello, I'm</small><br>Nazaire Shabazz</h1>
+
+    <div id="current-project">
+      
+    </div>
     
     <div class="container">
       <section>
